@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
+        /* আপনার আগের CSS কোড ঠিক একই রাখুন */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
         
@@ -507,7 +508,7 @@
 
     <script>
         // ============================================================
-        // COMPLETE JAVASCRIPT - FIXED VERSION
+        // COMPLETE JAVASCRIPT - ROLE FIXED
         // ============================================================
         
         (function() {
@@ -590,7 +591,7 @@
                 renderMessages();
                 updateSidebar();
                 updateStats();
-                addMessage('bot', '> NEW SESSION INITIALIZED\nType your message to start.');
+                addMessage('assistant', '> NEW SESSION INITIALIZED\nType your message to start.');
             }
             
             function updateSidebar() {
@@ -623,7 +624,9 @@
             
             function addMessageToUI(role, content, tokens = 0) {
                 const div = document.createElement('div');
-                div.className = `message ${role}`;
+                // For display, we treat 'assistant' as 'bot'
+                const displayRole = role === 'assistant' ? 'bot' : role;
+                div.className = `message ${displayRole}`;
                 
                 const header = document.createElement('div');
                 header.className = 'msg-header';
@@ -645,7 +648,7 @@
                 contentDiv.innerHTML = processed;
                 div.appendChild(contentDiv);
                 
-                if (role === 'bot') {
+                if (role === 'assistant' || role === 'bot') {
                     const actions = document.createElement('div');
                     actions.className = 'actions';
                     actions.innerHTML = `
@@ -661,7 +664,9 @@
             
             // ===== ADD MESSAGE =====
             function addMessage(role, content, tokens = 0) {
-                messages.push({ role, content, tokens });
+                // Store messages with proper OpenAI roles
+                const storedRole = role === 'bot' ? 'assistant' : role;
+                messages.push({ role: storedRole, content, tokens });
                 if (currentChatId && chats[currentChatId]) {
                     chats[currentChatId].messages = messages;
                     if (role === 'user' && messages.filter(m => m.role === 'user').length === 1) {
@@ -671,7 +676,7 @@
                     updateSidebar();
                     updateStats();
                 }
-                addMessageToUI(role, content, tokens);
+                addMessageToUI(storedRole, content, tokens);
             }
             
             // ===== SET TYPING =====
@@ -701,6 +706,7 @@
                 abortController = new AbortController();
                 
                 try {
+                    // Prepare messages for API - using stored messages with correct roles
                     const messagesToSend = messages.map(m => ({ 
                         role: m.role, 
                         content: m.content 
@@ -797,19 +803,19 @@
                         totalTokens += tokens;
                         // Remove streaming message
                         botDiv.remove();
-                        addMessage('bot', finalContent, tokens);
+                        addMessage('assistant', finalContent, tokens);
                         console.log('✅ Message complete, tokens:', tokens);
                     } else if (!fullContent) {
                         console.error('❌ No data received from server');
-                        addMessage('bot', '> No response received. Please check API key and try again.');
+                        addMessage('assistant', '> No response received. Please check:\n1. API key is valid\n2. OpenAI account has credits\n3. Try again later');
                     }
                     
                 } catch (error) {
                     console.error('❌ Error:', error);
                     if (error.name === 'AbortError') {
-                        addMessage('bot', '> GENERATION STOPPED BY USER');
+                        addMessage('assistant', '> GENERATION STOPPED BY USER');
                     } else {
-                        addMessage('bot', `> ERROR: ${error.message}`);
+                        addMessage('assistant', `> ERROR: ${error.message}`);
                     }
                 } finally {
                     isGenerating = false;
@@ -878,7 +884,7 @@
                 alert('🎤 Voice input coming soon!');
             });
             document.getElementById('ttsBtn').addEventListener('click', () => {
-                const lastBot = messages.filter(m => m.role === 'bot').pop();
+                const lastBot = messages.filter(m => m.role === 'assistant' || m.role === 'bot').pop();
                 if (lastBot) {
                     const utterance = new SpeechSynthesisUtterance(lastBot.content);
                     utterance.lang = 'bn-BD';
@@ -909,7 +915,7 @@
                     console.log('🔍 Health check:', data);
                     if (!data.api_key_set) {
                         console.error('❌ API KEY NOT SET!');
-                        addMessage('bot', '⚠️ API key not set. Please set OPENAI_API_KEY.');
+                        addMessage('assistant', '⚠️ API key not set. Please set OPENAI_API_KEY.');
                     } else {
                         console.log('✅ API key is set');
                     }
