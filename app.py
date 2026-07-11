@@ -5,17 +5,15 @@ from openai import OpenAI
 from flask_cors import CORS
 from dotenv import load_dotenv
 
-load_dotenv()  # লোকাল .env ফাইল থেকে লোড করবে
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# API key চেক
 api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
     print("⚠️  WARNING: OPENAI_API_KEY not set. Please set it in environment or .env file.")
 
-# ক্লায়েন্ট ইনিশিয়ালাইজ (শুধুমাত্র যদি key থাকে)
 client = OpenAI(api_key=api_key) if api_key else None
 
 @app.route('/')
@@ -56,4 +54,5 @@ def chat():
     return Response(stream_with_context(generate()), mimetype='text/event-stream')
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
