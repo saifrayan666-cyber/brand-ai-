@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
-        /* ===== HACKER THEME ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
         
@@ -21,7 +20,6 @@
             position: relative;
         }
         
-        /* Matrix Rain Background */
         #matrix-bg {
             position: fixed;
             top: 0;
@@ -39,7 +37,6 @@
             height: 100%;
         }
         
-        /* Glitch effect */
         @keyframes glitch {
             0% { transform: translate(0); }
             20% { transform: translate(-2px, 2px); }
@@ -49,11 +46,8 @@
             100% { transform: translate(0); }
         }
         
-        .glitch-text {
-            animation: glitch 0.3s infinite;
-        }
+        .glitch-text { animation: glitch 0.3s infinite; }
         
-        /* Scanline effect */
         body::before {
             content: '';
             position: fixed;
@@ -66,7 +60,6 @@
             z-index: 999;
         }
         
-        /* ===== HEADER ===== */
         .app-header {
             background: rgba(10, 10, 10, 0.95);
             border-bottom: 2px solid #00ff41;
@@ -88,26 +81,16 @@
             text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41;
         }
         
-        .brand i {
-            font-size: 1.8rem;
-            animation: pulse 2s infinite;
-        }
+        .brand i { font-size: 1.8rem; animation: pulse 2s infinite; }
         
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
         
-        .brand span {
-            font-family: 'Share Tech Mono', monospace;
-            letter-spacing: 3px;
-        }
+        .brand span { letter-spacing: 3px; }
         
-        .header-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+        .header-actions { display: flex; gap: 12px; align-items: center; }
         
         .header-actions button {
             background: transparent;
@@ -140,17 +123,13 @@
             border-radius: 4px;
         }
         
-        .status-badge i {
-            font-size: 0.5rem;
-            animation: blink 1s infinite;
-        }
+        .status-badge i { font-size: 0.5rem; animation: blink 1s infinite; }
         
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
         
-        /* ===== MAIN LAYOUT ===== */
         .chat-container {
             display: flex;
             height: calc(100vh - 65px);
@@ -158,7 +137,6 @@
             z-index: 10;
         }
         
-        /* ===== SIDEBAR ===== */
         .sidebar {
             width: 260px;
             background: rgba(10, 10, 10, 0.95);
@@ -172,9 +150,7 @@
             backdrop-filter: blur(10px);
         }
         
-        .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
+        .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-track { background: #0a0a0a; }
         .sidebar::-webkit-scrollbar-thumb { background: #00ff41; }
         
@@ -249,7 +225,6 @@
             justify-content: space-between;
         }
         
-        /* ===== MAIN CHAT ===== */
         .chat-main {
             flex: 1;
             display: flex;
@@ -267,13 +242,10 @@
             gap: 16px;
         }
         
-        .messages::-webkit-scrollbar {
-            width: 4px;
-        }
+        .messages::-webkit-scrollbar { width: 4px; }
         .messages::-webkit-scrollbar-track { background: #0a0a0a; }
         .messages::-webkit-scrollbar-thumb { background: #00ff41; }
         
-        /* ===== MESSAGES ===== */
         .message {
             max-width: 80%;
             padding: 12px 18px;
@@ -281,7 +253,6 @@
             line-height: 1.6;
             font-size: 0.9rem;
             animation: fadeIn 0.3s ease;
-            position: relative;
         }
         
         .message.user {
@@ -311,9 +282,7 @@
             margin-bottom: 4px;
         }
         
-        .message .msg-content {
-            word-wrap: break-word;
-        }
+        .message .msg-content { word-wrap: break-word; }
         
         .message .msg-content pre {
             background: rgba(0, 0, 0, 0.5);
@@ -327,39 +296,6 @@
         .message .msg-content code {
             font-family: 'Share Tech Mono', monospace;
             font-size: 0.8rem;
-        }
-        
-        /* Code Preview */
-        .code-preview {
-            margin: 8px 0;
-            border: 2px solid #00ff41;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .code-preview iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            background: white;
-        }
-        
-        .code-preview .preview-header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 4px 12px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-            color: #00ff41;
-            border-bottom: 2px solid #00ff41;
-        }
-        
-        .code-preview .preview-header button {
-            background: transparent;
-            border: none;
-            color: #00ff41;
-            cursor: pointer;
-            font-size: 0.7rem;
         }
         
         .message .actions {
@@ -386,7 +322,6 @@
             color: #0a0a0a;
         }
         
-        /* ===== TYPING INDICATOR ===== */
         .typing-indicator {
             align-self: flex-start;
             background: rgba(0, 255, 65, 0.05);
@@ -416,7 +351,6 @@
             30% { opacity: 1; transform: scale(1.2); }
         }
         
-        /* ===== INPUT AREA ===== */
         .input-area {
             background: rgba(10, 10, 10, 0.95);
             border-top: 2px solid #00ff41;
@@ -488,19 +422,6 @@
             color: #00ff41;
         }
         
-        /* ===== VOICE RECORDING ===== */
-        .voice-recording {
-            border-color: #ff0044 !important;
-            color: #ff0044 !important;
-            animation: recordPulse 0.5s infinite;
-        }
-        
-        @keyframes recordPulse {
-            0%, 100% { box-shadow: 0 0 10px #ff0044; }
-            50% { box-shadow: 0 0 30px #ff0044; }
-        }
-        
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .sidebar { width: 200px; padding: 12px; }
             .message { max-width: 90%; }
@@ -515,12 +436,10 @@
 </head>
 <body>
 
-    <!-- Matrix Background -->
     <div id="matrix-bg">
         <canvas id="matrixCanvas"></canvas>
     </div>
 
-    <!-- Header -->
     <header class="app-header">
         <div class="brand">
             <i class="fas fa-skull"></i>
@@ -537,24 +456,19 @@
         </div>
     </header>
 
-    <!-- Main Container -->
     <div class="chat-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-title"><i class="fas fa-database"></i> CHATS</div>
             <button class="new-chat-btn" id="sidebarNewChat">
                 <i class="fas fa-plus"></i> NEW SESSION
             </button>
-            <div class="convo-list" id="convoList">
-                <!-- Dynamic -->
-            </div>
+            <div class="convo-list" id="convoList"></div>
             <div class="sidebar-stats">
                 <span><i class="fas fa-microchip"></i> TOKENS: <span id="tokenCount">0</span></span>
                 <span><i class="fas fa-clock"></i> <span id="msgCount">0</span> MSGS</span>
             </div>
         </aside>
 
-        <!-- Chat Main -->
         <div class="chat-main">
             <div class="messages" id="messageContainer">
                 <div class="message bot">
@@ -565,8 +479,7 @@
                     <div class="msg-content">
                         <strong>> SYSTEM READY</strong><br>
                         Welcome to Brand AI Hacker Edition.<br>
-                        Features: Voice, Image Analysis, Code Preview, Chat History.<br>
-                        <span style="color: #00ff41; opacity:0.7;">Type your message to start.</span>
+                        Type your message to start.
                     </div>
                 </div>
             </div>
@@ -578,12 +491,11 @@
                 <span class="dot"></span>
             </div>
 
-            <!-- Input -->
             <div class="input-area">
                 <textarea id="chatInput" rows="1" placeholder="> Type message... (Bangla/English)"></textarea>
                 <div class="input-actions">
-                    <button id="voiceBtn" title="Voice Input (STT)"><i class="fas fa-microphone"></i></button>
-                    <button id="ttsBtn" title="Voice Output (TTS)"><i class="fas fa-volume-up"></i></button>
+                    <button id="voiceBtn" title="Voice Input"><i class="fas fa-microphone"></i></button>
+                    <button id="ttsBtn" title="Voice Output"><i class="fas fa-volume-up"></i></button>
                     <button id="imageBtn" title="Image Analysis"><i class="fas fa-image"></i></button>
                     <button id="sendBtn" class="primary"><i class="fas fa-paper-plane"></i></button>
                 </div>
@@ -591,12 +503,11 @@
         </div>
     </div>
 
-    <!-- Image Upload Hidden -->
     <input type="file" id="imageUpload" accept="image/*" style="display:none">
 
     <script>
         // ============================================================
-        // COMPLETE JAVASCRIPT ENGINE - UPDATED
+        // COMPLETE JAVASCRIPT - FIXED VERSION
         // ============================================================
         
         (function() {
@@ -608,8 +519,6 @@
             let messages = [];
             let isGenerating = false;
             let abortController = null;
-            let isRecording = false;
-            let recognition = null;
             let totalTokens = 0;
             
             // ===== DOM REFS =====
@@ -620,10 +529,6 @@
             const convoList = document.getElementById('convoList');
             const tokenCount = document.getElementById('tokenCount');
             const msgCount = document.getElementById('msgCount');
-            const voiceBtn = document.getElementById('voiceBtn');
-            const ttsBtn = document.getElementById('ttsBtn');
-            const imageBtn = document.getElementById('imageBtn');
-            const imageUpload = document.getElementById('imageUpload');
             
             // ===== MATRIX BACKGROUND =====
             function initMatrix() {
@@ -688,21 +593,6 @@
                 addMessage('bot', '> NEW SESSION INITIALIZED\nType your message to start.');
             }
             
-            function deleteChat(chatId) {
-                if (confirm('Delete this chat?')) {
-                    delete chats[chatId];
-                    if (currentChatId === chatId) {
-                        const keys = Object.keys(chats);
-                        currentChatId = keys.length > 0 ? keys[0] : null;
-                        messages = currentChatId ? chats[currentChatId].messages : [];
-                    }
-                    saveChats();
-                    renderMessages();
-                    updateSidebar();
-                    updateStats();
-                }
-            }
-            
             function updateSidebar() {
                 convoList.innerHTML = '';
                 const keys = Object.keys(chats).reverse();
@@ -713,10 +603,6 @@
                     const count = chats[id].messages ? chats[id].messages.length : 0;
                     div.innerHTML = `<i class="fas fa-comment"></i> ${title.substring(0, 20)} (${count})`;
                     div.onclick = () => loadChat(id);
-                    div.oncontextmenu = (e) => {
-                        e.preventDefault();
-                        deleteChat(id);
-                    };
                     convoList.appendChild(div);
                 });
             }
@@ -750,64 +636,27 @@
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'msg-content';
                 
-                // Parse content for code blocks and preview
                 let processed = content;
-                // Check for HTML code blocks
-                const htmlMatch = processed.match(/```html\s*([\s\S]*?)```/);
-                if (htmlMatch) {
-                    const code = htmlMatch[1];
-                    processed = processed.replace(/```html\s*([\s\S]*?)```/, (match, code) => {
-                        return `<div class="code-preview">
-                            <div class="preview-header">
-                                <span><i class="fas fa-code"></i> HTML PREVIEW</span>
-                                <button onclick="openPreview(this)"><i class="fas fa-external-link-alt"></i></button>
-                            </div>
-                            <iframe srcdoc="${code.replace(/"/g, '&quot;')}"></iframe>
-                        </div>`;
-                    });
-                }
-                
-                // Regular code blocks
-                processed = processed.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-                    return `<pre><code class="language-${lang || 'text'}">${escapeHtml(code)}</code></pre>`;
-                });
-                
-                // Bold, italic, inline code
                 processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 processed = processed.replace(/\*(.*?)\*/g, '<em>$1</em>');
                 processed = processed.replace(/`([^`]+)`/g, '<code>$1</code>');
-                
-                // Newlines to <br>
                 processed = processed.replace(/\n/g, '<br>');
                 
                 contentDiv.innerHTML = processed;
                 div.appendChild(contentDiv);
                 
-                // Actions for bot messages
                 if (role === 'bot') {
                     const actions = document.createElement('div');
                     actions.className = 'actions';
                     actions.innerHTML = `
                         <button onclick="copyMessage(this)"><i class="fas fa-copy"></i> COPY</button>
                         <button onclick="regenerateMessage()"><i class="fas fa-redo"></i> RETRY</button>
-                        <button onclick="speakMessage(this)"><i class="fas fa-volume-up"></i> SPEAK</button>
                     `;
                     div.appendChild(actions);
                 }
                 
                 msgContainer.appendChild(div);
                 msgContainer.scrollTop = msgContainer.scrollHeight;
-                
-                // Highlight code
-                div.querySelectorAll('pre code').forEach(block => {
-                    hljs.highlightElement(block);
-                });
-            }
-            
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
             }
             
             // ===== ADD MESSAGE =====
@@ -815,7 +664,6 @@
                 messages.push({ role, content, tokens });
                 if (currentChatId && chats[currentChatId]) {
                     chats[currentChatId].messages = messages;
-                    // Update title from first user message
                     if (role === 'user' && messages.filter(m => m.role === 'user').length === 1) {
                         chats[currentChatId].title = content.substring(0, 30) + '...';
                     }
@@ -826,7 +674,13 @@
                 addMessageToUI(role, content, tokens);
             }
             
-            // ===== SEND MESSAGE - UPDATED =====
+            // ===== SET TYPING =====
+            function setTyping(visible) {
+                typingIndicator.style.display = visible ? 'flex' : 'none';
+                if (visible) msgContainer.scrollTop = msgContainer.scrollHeight;
+            }
+            
+            // ===== SEND MESSAGE - FIXED =====
             async function sendMessage() {
                 const text = chatInput.value.trim();
                 if (!text) {
@@ -857,8 +711,7 @@
                     const response = await fetch('/chat', {
                         method: 'POST',
                         headers: { 
-                            'Content-Type': 'application/json',
-                            'Accept': 'text/event-stream'
+                            'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
                             messages: messagesToSend
@@ -878,7 +731,6 @@
                     const decoder = new TextDecoder();
                     let fullContent = '';
                     let botDiv = null;
-                    let hasReceivedData = false;
                     
                     while (true) {
                         const { done, value } = await reader.read();
@@ -888,24 +740,21 @@
                         }
                         
                         const chunk = decoder.decode(value);
-                        console.log('📦 Received chunk:', chunk.substring(0, 200));
+                        console.log('📦 Received chunk');
                         
                         const lines = chunk.split('\n').filter(l => l.trim());
                         
                         for (const line of lines) {
                             if (line.startsWith('data: ')) {
                                 const data = line.slice(6);
-                                console.log('📨 Data:', data);
                                 
                                 if (data === '[DONE]') {
                                     console.log('✅ Stream complete');
-                                    hasReceivedData = true;
                                     continue;
                                 }
                                 
                                 try {
                                     const parsed = JSON.parse(data);
-                                    console.log('📊 Parsed:', parsed);
                                     
                                     if (parsed.error) {
                                         console.error('❌ API Error:', parsed.error);
@@ -914,7 +763,6 @@
                                     
                                     const delta = parsed.content || '';
                                     if (delta) {
-                                        hasReceivedData = true;
                                         fullContent += delta;
                                         
                                         if (!botDiv) {
@@ -947,16 +795,13 @@
                         const finalContent = fullContent;
                         const tokens = Math.round(finalContent.length / 4);
                         totalTokens += tokens;
-                        // Remove the streaming message and add final
+                        // Remove streaming message
                         botDiv.remove();
                         addMessage('bot', finalContent, tokens);
                         console.log('✅ Message complete, tokens:', tokens);
-                    } else if (!hasReceivedData) {
+                    } else if (!fullContent) {
                         console.error('❌ No data received from server');
-                        addMessage('bot', '> No response received from server. Please check API key and try again.');
-                    } else {
-                        console.warn('⚠️ Empty response');
-                        addMessage('bot', '> Empty response received.');
+                        addMessage('bot', '> No response received. Please check API key and try again.');
                     }
                     
                 } catch (error) {
@@ -971,85 +816,6 @@
                     setTyping(false);
                     abortController = null;
                 }
-            }
-            
-            // ===== TYPING INDICATOR =====
-            function setTyping(visible) {
-                typingIndicator.style.display = visible ? 'flex' : 'none';
-                if (visible) msgContainer.scrollTop = msgContainer.scrollHeight;
-            }
-            
-            // ===== VOICE RECOGNITION =====
-            function initVoice() {
-                if (!('webkitSpeechRecognition' in window)) {
-                    alert('Voice input not supported in this browser. Use Chrome.');
-                    return;
-                }
-                recognition = new webkitSpeechRecognition();
-                recognition.lang = 'bn-BD,en-US';
-                recognition.continuous = false;
-                recognition.interimResults = true;
-                
-                recognition.onresult = (event) => {
-                    let final = '';
-                    for (let i = event.resultIndex; i < event.results.length; i++) {
-                        if (event.results[i].isFinal) {
-                            final += event.results[i][0].transcript;
-                        }
-                    }
-                    if (final) {
-                        chatInput.value = final;
-                        chatInput.focus();
-                        sendMessage();
-                    }
-                };
-                
-                recognition.onerror = (event) => {
-                    console.error('Voice error:', event.error);
-                    voiceBtn.classList.remove('voice-recording');
-                    isRecording = false;
-                };
-                
-                recognition.onend = () => {
-                    voiceBtn.classList.remove('voice-recording');
-                    isRecording = false;
-                };
-            }
-            
-            // ===== TEXT TO SPEECH =====
-            function speakText(text) {
-                if (!('speechSynthesis' in window)) {
-                    alert('TTS not supported');
-                    return;
-                }
-                const clean = text.replace(/<[^>]*>/g, '').replace(/\*/g, '');
-                const utterance = new SpeechSynthesisUtterance(clean);
-                utterance.lang = 'bn-BD';
-                utterance.rate = 0.9;
-                speechSynthesis.speak(utterance);
-            }
-            
-            // ===== IMAGE ANALYSIS =====
-            function handleImage(file) {
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = async (e) => {
-                    const base64 = e.target.result.split(',')[1];
-                    addMessage('user', `[IMAGE ATTACHED: ${file.name}]`);
-                    
-                    try {
-                        const response = await fetch('/analyze-image', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ image: base64 })
-                        });
-                        const data = await response.json();
-                        addMessage('bot', data.analysis || 'Image analyzed successfully.');
-                    } catch (error) {
-                        addMessage('bot', `> IMAGE ANALYSIS ERROR: ${error.message}`);
-                    }
-                };
-                reader.readAsDataURL(file);
             }
             
             // ===== GLOBAL FUNCTIONS =====
@@ -1075,20 +841,6 @@
                 }
             };
             
-            window.speakMessage = function(btn) {
-                const msg = btn.closest('.message');
-                const text = msg.querySelector('.msg-content').textContent;
-                speakText(text);
-            };
-            
-            window.openPreview = function(btn) {
-                const iframe = btn.closest('.code-preview').querySelector('iframe');
-                const content = iframe.srcdoc;
-                const win = window.open('', '_blank');
-                win.document.write(content);
-                win.document.close();
-            };
-            
             // ===== EVENT LISTENERS =====
             sendBtn.addEventListener('click', sendMessage);
             chatInput.addEventListener('keydown', (e) => {
@@ -1109,37 +861,6 @@
                 }
             });
             
-            voiceBtn.addEventListener('click', () => {
-                if (!recognition) initVoice();
-                if (!recognition) return;
-                if (isRecording) {
-                    recognition.stop();
-                    voiceBtn.classList.remove('voice-recording');
-                    isRecording = false;
-                } else {
-                    recognition.start();
-                    voiceBtn.classList.add('voice-recording');
-                    isRecording = true;
-                }
-            });
-            
-            ttsBtn.addEventListener('click', () => {
-                const lastBot = messages.filter(m => m.role === 'bot').pop();
-                if (lastBot) {
-                    speakText(lastBot.content);
-                } else {
-                    alert('No bot message to speak.');
-                }
-            });
-            
-            imageBtn.addEventListener('click', () => imageUpload.click());
-            imageUpload.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    handleImage(e.target.files[0]);
-                }
-                imageUpload.value = '';
-            });
-            
             document.getElementById('exportBtn').addEventListener('click', () => {
                 const txt = messages.map(m => {
                     const role = m.role === 'user' ? 'USER' : 'BRAND AI';
@@ -1150,6 +871,22 @@
                 a.href = URL.createObjectURL(blob);
                 a.download = `brand_ai_export_${Date.now()}.txt`;
                 a.click();
+            });
+            
+            // Voice and Image (dummy)
+            document.getElementById('voiceBtn').addEventListener('click', () => {
+                alert('🎤 Voice input coming soon!');
+            });
+            document.getElementById('ttsBtn').addEventListener('click', () => {
+                const lastBot = messages.filter(m => m.role === 'bot').pop();
+                if (lastBot) {
+                    const utterance = new SpeechSynthesisUtterance(lastBot.content);
+                    utterance.lang = 'bn-BD';
+                    speechSynthesis.speak(utterance);
+                }
+            });
+            document.getElementById('imageBtn').addEventListener('click', () => {
+                alert('🖼️ Image analysis coming soon!');
             });
             
             chatInput.addEventListener('input', function() {
@@ -1165,13 +902,6 @@
                 newChat();
             }
             
-            if ('webkitSpeechRecognition' in window) {
-                initVoice();
-            }
-            
-            console.log('🖥️ BRAND AI HACKER EDITION LOADED');
-            console.log('🔥 Features: Voice, Image, Code Preview, Chat History');
-            
             // Test API connection
             fetch('/test')
                 .then(res => res.json())
@@ -1179,12 +909,14 @@
                     console.log('🔍 Health check:', data);
                     if (!data.api_key_set) {
                         console.error('❌ API KEY NOT SET!');
-                        addMessage('bot', '⚠️ API key not set. Please set OPENAI_API_KEY environment variable.');
+                        addMessage('bot', '⚠️ API key not set. Please set OPENAI_API_KEY.');
                     } else {
                         console.log('✅ API key is set');
                     }
                 })
                 .catch(err => console.error('Health check failed:', err));
+            
+            console.log('🖥️ BRAND AI HACKER EDITION LOADED');
             
         })();
     </script>
