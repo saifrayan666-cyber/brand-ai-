@@ -1,15 +1,22 @@
 import os
 import json
-import time
 from flask import Flask, render_template, request, Response, stream_with_context
 from openai import OpenAI
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()  # লোকাল .env ফাইল থেকে লোড করবে
 
 app = Flask(__name__)
 CORS(app)
 
-# OpenAI client initialized with API key from environment
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+# API key চেক
+api_key = os.environ.get("OPENAI_API_KEY")
+if not api_key:
+    print("⚠️  WARNING: OPENAI_API_KEY not set. Please set it in environment or .env file.")
+
+# ক্লায়েন্ট ইনিশিয়ালাইজ (শুধুমাত্র যদি key থাকে)
+client = OpenAI(api_key=api_key) if api_key else None
 
 @app.route('/')
 def index():
@@ -17,6 +24,9 @@ def index():
 
 @app.route('/chat', methods=['POST'])
 def chat():
+    if not client:
+        return {"error": "OpenAI API key is not configured. Please set OPENAI_API_KEY."}, 500
+
     data = request.get_json()
     messages = data.get('messages', [])
     model = data.get('model', 'gpt-3.5-turbo')
