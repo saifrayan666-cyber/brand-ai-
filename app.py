@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)  # এই `app` ভেরিয়েবলটা Procfile-এ রেফার করছে
+app = Flask(__name__)
 CORS(app)
 
 logging.basicConfig(level=logging.DEBUG)
@@ -30,7 +30,8 @@ def index():
 def test():
     return jsonify({
         "status": "ok",
-        "api_key_set": bool(api_key)
+        "api_key_set": bool(api_key),
+        "api_key_preview": api_key[:10] + "..." if api_key else "None"
     })
 
 @app.route('/chat', methods=['POST'])
@@ -40,6 +41,11 @@ def chat():
     
     data = request.get_json()
     messages = data.get('messages', [])
+    
+    if not messages:
+        return jsonify({"error": "No messages"}), 400
+    
+    logger.info(f"📨 Received {len(messages)} messages")
     
     def generate():
         try:
@@ -56,7 +62,7 @@ def chat():
                     yield f"data: {json.dumps({'content': content})}\n\n"
             yield "data: [DONE]\n\n"
         except Exception as e:
-            logger.error(f"Error: {str(e)}")
+            logger.error(f"❌ Error: {str(e)}")
             yield f"data: {json.dumps({'error': str(e)})}\n\n"
     
     return Response(stream_with_context(generate()), mimetype='text/event-stream')
@@ -69,6 +75,9 @@ def analyze_image():
     data = request.get_json()
     image_base64 = data.get('image')
     
+    if not image_base64:
+        return jsonify({"error": "No image provided"}), 400
+    
     try:
         response = client.chat.completions.create(
             model="gpt-4-vision-preview",
@@ -76,7 +85,7 @@ def analyze_image():
                 {
                     "role": "user",
                     "content": [
-                        {"type": "text", "text": "Describe this image in detail."},
+                        {"type": "text", "text": "Describe this image in detail in both Bangla and English."},
                         {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}}
                     ]
                 }
@@ -89,4 +98,5 @@ def analyze_image():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
+    logger.info(f"🚀 Starting server on port {port}")
     app.run(debug=False, host='0.0.0.0', port=port)
