@@ -9,11 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
         /* ===== HACKER THEME ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
         
         body {
@@ -34,7 +30,7 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.1;
+            opacity: 0.08;
             overflow: hidden;
         }
         
@@ -65,7 +61,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(0,255,65,0.03) 0px, rgba(0,255,65,0.03) 2px, transparent 2px, transparent 4px);
+            background: repeating-linear-gradient(0deg, rgba(0,255,65,0.02) 0px, rgba(0,255,65,0.02) 2px, transparent 2px, transparent 4px);
             pointer-events: none;
             z-index: 999;
         }
@@ -73,7 +69,7 @@
         /* ===== HEADER ===== */
         .app-header {
             background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid #00ff41;
+            border-bottom: 2px solid #00ff41;
             padding: 10px 20px;
             display: flex;
             align-items: center;
@@ -166,7 +162,7 @@
         .sidebar {
             width: 260px;
             background: rgba(10, 10, 10, 0.95);
-            border-right: 1px solid #00ff41;
+            border-right: 2px solid #00ff41;
             padding: 16px;
             display: flex;
             flex-direction: column;
@@ -179,28 +175,21 @@
         .sidebar::-webkit-scrollbar {
             width: 4px;
         }
-        
-        .sidebar::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        
-        .sidebar::-webkit-scrollbar-thumb {
-            background: #00ff41;
-        }
+        .sidebar::-webkit-scrollbar-track { background: #0a0a0a; }
+        .sidebar::-webkit-scrollbar-thumb { background: #00ff41; }
         
         .sidebar-title {
             color: #00ff41;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-bottom: 1px solid #00ff41;
+            border-bottom: 2px solid #00ff41;
             padding-bottom: 8px;
-            margin-bottom: 4px;
         }
         
         .sidebar .new-chat-btn {
             background: transparent;
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             color: #00ff41;
             padding: 10px;
             border-radius: 4px;
@@ -250,12 +239,8 @@
             background: rgba(0, 255, 65, 0.1);
         }
         
-        .convo-list .item i {
-            font-size: 0.7rem;
-        }
-        
         .sidebar-stats {
-            border-top: 1px solid #00ff41;
+            border-top: 2px solid #00ff41;
             padding-top: 12px;
             font-size: 0.7rem;
             color: #00ff41;
@@ -285,18 +270,12 @@
         .messages::-webkit-scrollbar {
             width: 4px;
         }
-        
-        .messages::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        
-        .messages::-webkit-scrollbar-thumb {
-            background: #00ff41;
-        }
+        .messages::-webkit-scrollbar-track { background: #0a0a0a; }
+        .messages::-webkit-scrollbar-thumb { background: #00ff41; }
         
         /* ===== MESSAGES ===== */
         .message {
-            max-width: 75%;
+            max-width: 80%;
             padding: 12px 18px;
             border-radius: 4px;
             line-height: 1.6;
@@ -308,14 +287,14 @@
         .message.user {
             align-self: flex-end;
             background: rgba(0, 255, 65, 0.1);
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             border-right: none;
         }
         
         .message.bot {
             align-self: flex-start;
             background: rgba(0, 255, 65, 0.05);
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             border-left: none;
         }
         
@@ -353,7 +332,7 @@
         /* Code Preview */
         .code-preview {
             margin: 8px 0;
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             border-radius: 4px;
             overflow: hidden;
         }
@@ -372,7 +351,7 @@
             justify-content: space-between;
             font-size: 0.7rem;
             color: #00ff41;
-            border-bottom: 1px solid #00ff41;
+            border-bottom: 2px solid #00ff41;
         }
         
         .code-preview .preview-header button {
@@ -411,7 +390,7 @@
         .typing-indicator {
             align-self: flex-start;
             background: rgba(0, 255, 65, 0.05);
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             padding: 10px 20px;
             border-radius: 4px;
             display: flex;
@@ -440,7 +419,7 @@
         /* ===== INPUT AREA ===== */
         .input-area {
             background: rgba(10, 10, 10, 0.95);
-            border-top: 1px solid #00ff41;
+            border-top: 2px solid #00ff41;
             padding: 12px 20px;
             display: flex;
             align-items: flex-end;
@@ -451,7 +430,7 @@
         .input-area textarea {
             flex: 1;
             background: transparent;
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             border-radius: 4px;
             padding: 10px 16px;
             color: #00ff41;
@@ -480,10 +459,10 @@
         
         .input-actions button {
             background: transparent;
-            border: 1px solid #00ff41;
+            border: 2px solid #00ff41;
             color: #00ff41;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s;
@@ -523,26 +502,14 @@
         
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-                padding: 12px;
-            }
-            .message {
-                max-width: 90%;
-            }
+            .sidebar { width: 200px; padding: 12px; }
+            .message { max-width: 90%; }
         }
         
         @media (max-width: 500px) {
-            .sidebar {
-                display: none;
-            }
-            .header-actions button {
-                padding: 4px 8px;
-                font-size: 0.6rem;
-            }
-            .messages {
-                padding: 12px 16px;
-            }
+            .sidebar { display: none; }
+            .header-actions button { padding: 4px 8px; font-size: 0.6rem; }
+            .messages { padding: 12px 16px; }
         }
     </style>
 </head>
@@ -599,7 +566,7 @@
                         <strong>> SYSTEM READY</strong><br>
                         Welcome to Brand AI Hacker Edition.<br>
                         Features: Voice, Image Analysis, Code Preview, Chat History.<br>
-                        <span style="color: #00ff41; opacity:0.7;">Type /help for commands.</span>
+                        <span style="color: #00ff41; opacity:0.7;">Type your message to start.</span>
                     </div>
                 </div>
             </div>
@@ -718,8 +685,7 @@
                 renderMessages();
                 updateSidebar();
                 updateStats();
-                // Add welcome
-                addMessage('bot', '> NEW SESSION INITIALIZED\nType /help for commands.');
+                addMessage('bot', '> NEW SESSION INITIALIZED\nType your message to start.');
             }
             
             function deleteChat(chatId) {
@@ -777,7 +743,8 @@
                 header.className = 'msg-header';
                 const icon = role === 'user' ? 'fa-user' : 'fa-robot';
                 const name = role === 'user' ? 'USER' : 'BRAND AI';
-                header.innerHTML = `<span><i class="fas ${icon}"></i> ${name}</span>`;
+                header.innerHTML = `<span><i class="fas ${icon}"></i> ${name}</span>
+                                   <span>${new Date().toLocaleTimeString()}</span>`;
                 div.appendChild(header);
                 
                 const contentDiv = document.createElement('div');
@@ -816,7 +783,7 @@
                 contentDiv.innerHTML = processed;
                 div.appendChild(contentDiv);
                 
-                // Actions
+                // Actions for bot messages
                 if (role === 'bot') {
                     const actions = document.createElement('div');
                     actions.className = 'actions';
@@ -873,6 +840,9 @@
                 abortController = new AbortController();
                 
                 try {
+                    console.log('📤 Sending message...');
+                    console.log('Messages:', messages);
+                    
                     const response = await fetch('/chat', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -882,8 +852,12 @@
                         signal: abortController.signal
                     });
                     
+                    console.log('📥 Response status:', response.status);
+                    
                     if (!response.ok) {
-                        throw new Error('API error');
+                        const errorText = await response.text();
+                        console.error('Error response:', errorText);
+                        throw new Error(`HTTP ${response.status}: ${errorText}`);
                     }
                     
                     const reader = response.body.getReader();
@@ -896,15 +870,21 @@
                         if (done) break;
                         
                         const chunk = decoder.decode(value);
+                        console.log('📦 Received chunk:', chunk.substring(0, 100));
+                        
                         const lines = chunk.split('\n').filter(l => l.trim());
                         
                         for (const line of lines) {
                             if (line.startsWith('data: ')) {
                                 const data = line.slice(6);
-                                if (data === '[DONE]') continue;
+                                if (data === '[DONE]') {
+                                    console.log('✅ Stream complete');
+                                    continue;
+                                }
                                 try {
                                     const parsed = JSON.parse(data);
                                     if (parsed.error) {
+                                        console.error('❌ API Error:', parsed.error);
                                         throw new Error(parsed.error);
                                     }
                                     const delta = parsed.content || '';
@@ -919,7 +899,6 @@
                                     
                                     // Update streaming
                                     let display = fullContent;
-                                    // Simple formatting
                                     display = display.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                                     display = display.replace(/\*(.*?)\*/g, '<em>$1</em>');
                                     display = display.replace(/`([^`]+)`/g, '<code>$1</code>');
@@ -928,7 +907,9 @@
                                     botDiv.innerHTML = `<div class="msg-header"><span><i class="fas fa-robot"></i> BRAND AI</span><span>STREAMING</span></div>
                                         <div class="msg-content">${display}</div>`;
                                     msgContainer.scrollTop = msgContainer.scrollHeight;
-                                } catch (e) {}
+                                } catch (e) {
+                                    console.error('Parse error:', e);
+                                }
                             }
                         }
                     }
@@ -939,9 +920,12 @@
                         const tokens = Math.round(finalContent.length / 4);
                         totalTokens += tokens;
                         addMessage('bot', finalContent, tokens);
+                    } else {
+                        addMessage('bot', '> No response received. Please try again.');
                     }
                     
                 } catch (error) {
+                    console.error('❌ Error:', error);
                     if (error.name === 'AbortError') {
                         addMessage('bot', '> GENERATION STOPPED BY USER');
                     } else {
@@ -1003,7 +987,6 @@
                     alert('TTS not supported');
                     return;
                 }
-                // Clean text
                 const clean = text.replace(/<[^>]*>/g, '').replace(/\*/g, '');
                 const utterance = new SpeechSynthesisUtterance(clean);
                 utterance.lang = 'bn-BD';
@@ -1019,7 +1002,6 @@
                     const base64 = e.target.result.split(',')[1];
                     addMessage('user', `[IMAGE ATTACHED: ${file.name}]`);
                     
-                    // Send to server for analysis (vision API)
                     try {
                         const response = await fetch('/analyze-image', {
                             method: 'POST',
@@ -1046,13 +1028,11 @@
             };
             
             window.regenerateMessage = function() {
-                // Remove last bot message
                 const msgs = msgContainer.querySelectorAll('.message');
                 if (msgs.length > 0 && msgs[msgs.length-1].classList.contains('bot')) {
                     msgs[msgs.length-1].remove();
                     messages.pop();
                 }
-                // Resend last user message
                 const lastUser = messages.filter(m => m.role === 'user').pop();
                 if (lastUser) {
                     chatInput.value = lastUser.content;
@@ -1083,11 +1063,9 @@
                 }
             });
             
-            // New chat
             document.getElementById('newChatBtn').addEventListener('click', newChat);
             document.getElementById('sidebarNewChat').addEventListener('click', newChat);
             
-            // Stop
             document.getElementById('stopBtn').addEventListener('click', () => {
                 if (abortController) {
                     abortController.abort();
@@ -1096,7 +1074,6 @@
                 }
             });
             
-            // Voice
             voiceBtn.addEventListener('click', () => {
                 if (!recognition) initVoice();
                 if (!recognition) return;
@@ -1111,7 +1088,6 @@
                 }
             });
             
-            // TTS
             ttsBtn.addEventListener('click', () => {
                 const lastBot = messages.filter(m => m.role === 'bot').pop();
                 if (lastBot) {
@@ -1121,10 +1097,7 @@
                 }
             });
             
-            // Image
-            imageBtn.addEventListener('click', () => {
-                imageUpload.click();
-            });
+            imageBtn.addEventListener('click', () => imageUpload.click());
             imageUpload.addEventListener('change', (e) => {
                 if (e.target.files.length > 0) {
                     handleImage(e.target.files[0]);
@@ -1132,7 +1105,6 @@
                 imageUpload.value = '';
             });
             
-            // Export
             document.getElementById('exportBtn').addEventListener('click', () => {
                 const txt = messages.map(m => {
                     const role = m.role === 'user' ? 'USER' : 'BRAND AI';
@@ -1145,14 +1117,12 @@
                 a.click();
             });
             
-            // Autosize
             chatInput.addEventListener('input', function() {
                 this.style.height = 'auto';
                 this.style.height = Math.min(this.scrollHeight, 120) + 'px';
             });
             
             // ===== INIT =====
-            // Load last chat or create new
             const keys = Object.keys(chats);
             if (keys.length > 0) {
                 loadChat(keys[0]);
@@ -1160,13 +1130,24 @@
                 newChat();
             }
             
-            // Init voice
             if ('webkitSpeechRecognition' in window) {
                 initVoice();
             }
             
             console.log('🖥️ BRAND AI HACKER EDITION LOADED');
             console.log('🔥 Features: Voice, Image, Code Preview, Chat History');
+            console.log('📡 API Key set:', localStorage.getItem('api_key_set') === 'true');
+            
+            // Test API connection
+            fetch('/test')
+                .then(res => res.json())
+                .then(data => {
+                    console.log('🔍 Health check:', data);
+                    if (!data.api_key_set) {
+                        console.error('❌ API KEY NOT SET!');
+                    }
+                })
+                .catch(err => console.error('Health check failed:', err));
             
         })();
     </script>
