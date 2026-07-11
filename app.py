@@ -1,6 +1,5 @@
 import os
 import json
-import base64
 from flask import Flask, render_template, request, Response, stream_with_context, jsonify
 from openai import OpenAI
 from flask_cors import CORS
@@ -12,6 +11,9 @@ app = Flask(__name__)
 CORS(app)
 
 api_key = os.environ.get("OPENAI_API_KEY")
+if not api_key:
+    print("⚠️ WARNING: OPENAI_API_KEY not set!")
+
 client = OpenAI(api_key=api_key) if api_key else None
 
 @app.route('/')
@@ -21,10 +23,15 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     if not client:
-        return {"error": "API key not configured"}, 500
+        return jsonify({"error": "OpenAI API key not configured"}), 500
     
     data = request.get_json()
     messages = data.get('messages', [])
+    
+    if not messages:
+        return jsonify({"error": "No messages"}), 400
+    
+    print(f"📨 Received messages: {len(messages)}")  # Debug log
     
     def generate():
         try:
@@ -41,6 +48,7 @@ def chat():
                     yield f"data: {json.dumps({'content': content})}\n\n"
             yield "data: [DONE]\n\n"
         except Exception as e:
+            print(f"❌ Error: {str(e)}")  # Debug log
             yield f"data: {json.dumps({'error': str(e)})}\n\n"
     
     return Response(stream_with_context(generate()), mimetype='text/event-stream')
@@ -76,4 +84,4 @@ def analyze_image():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=False, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)  # debug=True রাখুন
